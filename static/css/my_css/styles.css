@@ -1,0 +1,15 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #423232;
+    -webkit-box-shadow: 0 5px 25px rgb(67, 58, 48);
+    box-shadow: 0 5px 25px rgba(251, 187, 58, 0.917);
+}
+
+
+
+body, p {
+    text-indent: 60px
+}
+

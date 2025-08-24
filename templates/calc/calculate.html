@@ -1,0 +1,63 @@
+{% extends "calc/base.html" %}
+
+{% load static %}
+{% block favik %}
+  <link rel="icon" href="{% static 'img/calc.png' %}" sizes="16x16" type="image/png">
+{% endblock favik %}
+
+{% block title %} 
+форма увода
+{% endblock title %}
+
+
+{% block header %}
+ Форма-падліл класа сістэмы малакааховы 
+{% endblock header %}
+
+
+{% block content1 %}
+ <img src="{% static 'img/molnii2.jpg' %}" width="50%">
+{% endblock content1 %}
+
+{% block content2 %}
+ 
+  <style>
+    .myfield
+      {border-radius: 5px;
+      height: 25px;
+      width: 200px;
+      margin: 10px 10px 10px 0;}
+  </style>
+  <div class="container-fluid text-start my-2 border border-5 border-warning">
+    <h5> Геаметрыя будынка ці збудавання </h5>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group-my2">
+          <div class="row my-2">
+            <div class="col">
+              <div class="row">
+                <div class="col-2">{{ form.Lb.label_tag }}</div>
+                <div class="col-1">{{ form.Lb }}</div>
+              
+              </div>
+            </div>
+            <div class="col">
+             <div class="row">
+              <div class="col w-25">{{ form.Wb.label_tag }} </div>
+              <div class="col w-25"> {{ form.Wb }}</div>
+              </div>
+            </div>
+            <div class="col">
+             <div class="row">
+              <div class="col-2">{{ form.Hb.label_tag }}</div>
+              <div class="col-1"> {{ form.Hb }}</div>
+            
+              </div>
+            </div>
+            <div class="errror">{{ form.errrors }}</div>
+          </div>
+        </div>
+      <input type="submit" value="Дадаць...">  
+    </form>
+  </div>
+{% endblock content2 %}
