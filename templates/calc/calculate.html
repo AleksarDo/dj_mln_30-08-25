@@ -21,43 +21,46 @@
 
 {% block content2 %}
  
-  <style>
-    .myfield
-      {border-radius: 5px;
-      height: 25px;
-      width: 200px;
-      margin: 10px 10px 10px 0;}
-  </style>
-  <div class="container-fluid text-start my-2 border border-5 border-warning">
-    <h5> Геаметрыя будынка ці збудавання </h5>
+  <!--style>
+    .inpt_ed
+      {border-radius: 10px;
+      height: 30px;
+      width: 60px;
+      margin: 3px 3px 3px 0;}
+
+    .text-start 
+        {text-align: left 2px;}
+ 
+  </style-->
+
+
+  <div class="container-fluid my-2 border border-2 border-warning">
+    <h5> Падлік колькасці небяспечных здарэнняў для будынка </h5>
     <form method="POST">
         {% csrf_token %}
         <div class="form-group-my2">
-          <div class="row my-2">
-            <div class="col">
-              <div class="row">
-                <div class="col-2">{{ form.Lb.label_tag }}</div>
-                <div class="col-1">{{ form.Lb }}</div>
-              
-              </div>
+          <div class="row">
+            <div class="col-md-4 text text-center"> <h5> Параметры будынка </h5> </div>
+          </div >
+
+          <div class="row">
+            <div class="col-md-6">
+                {% for field in form %} 
+                <div class="col-md-8 text-sart"> 
+                      {{ field.label_tag }} </div>
+                <div class="col text-start"> 
+                      {{ field }}  </div>
+                </div>
+                <div class="errror"> {{ field.errrors }}</div>
+                {% endfor %}
             </div>
-            <div class="col">
-             <div class="row">
-              <div class="col w-25">{{ form.Wb.label_tag }} </div>
-              <div class="col w-25"> {{ form.Wb }}</div>
-              </div>
-            </div>
-            <div class="col">
-             <div class="row">
-              <div class="col-2">{{ form.Hb.label_tag }}</div>
-              <div class="col-1"> {{ form.Hb }}</div>
-            
-              </div>
-            </div>
-            <div class="errror">{{ form.errrors }}</div>
           </div>
         </div>
-      <input type="submit" value="Дадаць...">  
+    </div>            
+            
+    <div class="errror">{{ form.errrors }}</div>
+    <input type="submit" value="Дадаць...">  
+      </div>
     </form>
   </div>
 {% endblock content2 %}
