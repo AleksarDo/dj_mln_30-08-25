@@ -50,22 +50,21 @@
     </div>
     </header>
 
-    <div class="container-fluid bg-secondary bg-gradient text-white">    
-        <div class="row my-3 text-start text-body">                
+    <div class="row my-3  bg-secondary bg-gradient text-white text-start text-body">                
             <h2>{% block header %}
                 {% endblock %}
             </h2>
                    
         <div class="row my-2">
-            <div class="col-md-3 text-start">
+            <div class="col-md-3 align-self-center text-center text-primery">
                     {% block content1 %}{% endblock content1 %}
             </div>
-            <div class="col-md-9 align-self-center text-start text-primery">
+            <div class="col-md-9 align-self-center text-center text-primery">
                 {% block content2 %}{% endblock content2 %}
             </div>
         </div>
-        </div>
-    </div>        
+    </div>
+            
 
         
     <div class="row bg-secondary text-sart text-black lh-1">

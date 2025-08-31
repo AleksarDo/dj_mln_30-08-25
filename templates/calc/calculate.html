@@ -16,7 +16,7 @@
 
 
 {% block content1 %}
- <img src="{% static 'img/molnii2.jpg' %}" width="50%">
+ <img src="{% static 'img/molnii2.jpg' %}" width="75%">
 {% endblock content1 %}
 
 {% block content2 %}
@@ -37,8 +37,8 @@
         {% csrf_token %}
         <div class="form-group-my2">
           <div class="row">
-            <div class="col-md-4 position-relative">
-              <div class="card" style="width: 19rem;">
+            <div class="col-md-3 position-relative">
+              <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">{{ form.Lb.label_tag }} {{ form.Lb }}</li>
                   <li class="list-group-item">{{ form.Wb.label_tag }} {{ form.Wb }}</li>
@@ -46,16 +46,18 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-8 position-relative">
-              <div class="card" style="width: 40rem;">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">{{ form.Cdb.label_tag }}{{form.Cdb}}</li>
+            <div class="col-md-9 position-relative">              
+              <div class="card" style="width: 52rem;">
+                <ul class="list-group list-group-flush">                
+                  <li class="list-group-item">
+                    Таблица А.1 — Значение коэффициента влияния местоположения здания Сd<br>
+                    {{ form.Cdb.label_tag }}{{form.Cdb}}</li>
                 </ul>
               </div>
             </div>
 
                 <div class="errror"> {{ form.errrors }}</div>
-                <div>{{ form.outAdbCdb }}</div>
+                <div>{{ out }}</dtext-startiv>
                 <input type="submit" value="Дадаць...">  
           </div>
         </div>     

@@ -10,24 +10,30 @@ def index(request):
 def about(request):
     return render(request, 'calc/about.html')
 
-# def calculate(request):
-#     return render(request, 'calc/calculate.html', calc_form(request))
-
 
 def calculate(request):
-        if request.method == "POST":
-            calc_form = CalcForm(request.POST)
-            if calc_form.is_valid():
-                Lb = request.POST.get("Lb")
-                Wb = request.POST.get("Wb")
-                Hb = request.POST.get("Hb")
-                Cdb= request.POST.get("Cdb")
-                
-                outAdbCdb = f"<p> параметры: Lb = {Lb} x {Wb} x {Hb}</p>"
-                #return HttpResponse(output)
-            return render(request, 'calc/calculate.html', {'form': calc_form, 'out': outAdbCdb})
+    
+    output = "Заполните поля формыoutput"
+    if request.method == "POST":
+        calc_form_Ng = CalcForm(request.POST)
+        
+        if calc_form_Ng.is_valid():
+            Lb = float(request.POST.get("Lb"))
+            Wb = float(request.POST.get("Wb"))
+            Hb = float(request.POST.get("Hb"))
+            Cdb = float(request.POST.get("Cdb"))
+            
+            Adb = (Lb * Wb)+(6 * Hb)+(9*3.14*Hb*Hb)
+            output = f"Adb = {Lb} * {Wb} + 6 * {Hb} + {9*3.14} * {Hb*Hb} = {Adb} Cdb  = {Cdb}"
+            #return HttpResponse(output)
+            print(output)
+            context = {'form': calc_form_Ng, 'out': output}            
+            return render(request, "calc/calculate.html", context)
 
-        calc_form = CalcForm()
-        return render(request, 'calc/calculate.html', {'form': calc_form})
+            return render(request, "calc/calculate.html", context)
 
+    calc_form_Ng = CalcForm()
+    context = {'form': calc_form_Ng, 'out': output}
+    
+    return render(request, "calc/calculate.html", context)
 
