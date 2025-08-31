@@ -21,9 +21,11 @@ def calculate(request):
                 Lb = request.POST.get("Lb")
                 Wb = request.POST.get("Wb")
                 Hb = request.POST.get("Hb")
-                output = f"<p> параметры: Lb = {Lb} x {Wb} x {Hb}</p>"
+                Cdb= request.POST.get("Cdb")
+                
+                outAdbCdb = f"<p> параметры: Lb = {Lb} x {Wb} x {Hb}</p>"
                 #return HttpResponse(output)
-            return render(request, 'calc/calculate.html', {'form': calc_form, 'out': output})
+            return render(request, 'calc/calculate.html', {'form': calc_form, 'out': outAdbCdb})
 
         calc_form = CalcForm()
         return render(request, 'calc/calculate.html', {'form': calc_form})

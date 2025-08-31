@@ -21,46 +21,44 @@
 
 {% block content2 %}
  
-  <!--style>
+  <style>
     .inpt_ed
       {border-radius: 10px;
       height: 30px;
       width: 60px;
       margin: 3px 3px 3px 0;}
 
-    .text-start 
-        {text-align: left 2px;}
- 
-  </style-->
+  </style>
 
 
-  <div class="container-fluid my-2 border border-2 border-warning">
+  <div class="container-fluid my-2 border border-2 border-warning text-center">
     <h5> Падлік колькасці небяспечных здарэнняў для будынка </h5>
     <form method="POST">
         {% csrf_token %}
         <div class="form-group-my2">
           <div class="row">
-            <div class="col-md-4 text text-center"> <h5> Параметры будынка </h5> </div>
-          </div >
-
-          <div class="row">
-            <div class="col-md-6">
-                {% for field in form %} 
-                <div class="col-md-8 text-sart"> 
-                      {{ field.label_tag }} </div>
-                <div class="col text-start"> 
-                      {{ field }}  </div>
-                </div>
-                <div class="errror"> {{ field.errrors }}</div>
-                {% endfor %}
+            <div class="col-md-4 position-relative">
+              <div class="card" style="width: 19rem;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{ form.Lb.label_tag }} {{ form.Lb }}</li>
+                  <li class="list-group-item">{{ form.Wb.label_tag }} {{ form.Wb }}</li>
+                  <li class="list-group-item">{{ form.Hb.label_tag }} {{ form.Hb }}</li>
+                </ul>
+              </div>
             </div>
+            <div class="col-md-8 position-relative">
+              <div class="card" style="width: 40rem;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{ form.Cdb.label_tag }}{{form.Cdb}}</li>
+                </ul>
+              </div>
+            </div>
+
+                <div class="errror"> {{ form.errrors }}</div>
+                <div>{{ form.outAdbCdb }}</div>
+                <input type="submit" value="Дадаць...">  
           </div>
-        </div>
-    </div>            
-            
-    <div class="errror">{{ form.errrors }}</div>
-    <input type="submit" value="Дадаць...">  
-      </div>
+        </div>     
     </form>
   </div>
 {% endblock content2 %}
