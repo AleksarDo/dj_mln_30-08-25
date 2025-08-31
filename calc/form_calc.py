@@ -20,6 +20,7 @@ class CalcForm(forms.Form):
                                         (4, "Изолированное здание, находящееся на вершине холма или возвышенности - 2.0"),
                                    ),
                                )
+    Td=forms.IntegerField(label="Тd — ", max_value=30, min_value=18, widget=forms.NumberInput(attrs={"class": "inpt_ed"}))
                                
     
 

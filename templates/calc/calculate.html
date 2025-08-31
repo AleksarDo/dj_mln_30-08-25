@@ -6,12 +6,12 @@
 {% endblock favik %}
 
 {% block title %} 
-форма увода
+форма увода дадзенных
 {% endblock title %}
 
 
 {% block header %}
- Форма-падліл класа сістэмы малакааховы 
+ Форма-падлік класа сістэмы маланкааховы 
 {% endblock header %}
 
 
@@ -36,8 +36,29 @@
     <form method="POST">
         {% csrf_token %}
         <div class="form-group-my2">
-          <div class="row">
-            <div class="col-md-3 position-relative">
+          <div class="row align-items-start">
+            <div class="col-md-8 position-relative">
+              <div class="card" style="width: 52rem;">
+                <ul class="list-group list-group-flush">                
+                  <li class="list-group-item">
+                    Колькасць навальнічных дзён (у сярэднім) на год
+
+                    {{ form.Td.label_tag }}{{form.Td}}</li>
+                </ul>
+                <a class="active-button" href="{% url 'thunmap' %}"> Мапа колькасці навальнічных дзён</a>
+              </div>
+              <div class="card" style="width: 52rem;">
+                <ul class="list-group list-group-flush">                
+                    <li class="list-group-item">
+                      Таблица А.1 — Значэнні каэфіціента уплыву месцазнаходжання будынка (збудавання) Сd<br>
+                      {{ form.Cdb.label_tag }}{{form.Cdb}}</li>
+                </ul>              
+              </div>
+            </div>
+
+
+            <div class="col-md-4 position-relative">
+              
               <div class="card" style="width: 20rem;">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">{{ form.Lb.label_tag }} {{ form.Lb }}</li>
@@ -46,15 +67,8 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-9 position-relative">              
-              <div class="card" style="width: 52rem;">
-                <ul class="list-group list-group-flush">                
-                  <li class="list-group-item">
-                    Таблица А.1 — Значение коэффициента влияния местоположения здания Сd<br>
-                    {{ form.Cdb.label_tag }}{{form.Cdb}}</li>
-                </ul>
-              </div>
-            </div>
+           </div>
+
 
                 <div class="errror"> {{ form.errrors }}</div>
                 <div>{{ out }}</dtext-startiv>

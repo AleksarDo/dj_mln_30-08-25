@@ -1,0 +1,40 @@
+{% extends "calc/base.html" %}
+
+{% load static %}
+{% block favik %}
+  <link rel="icon" href="{% static 'img/calc.png' %}" sizes="16x16" type="image/png">
+{% endblock favik %}
+
+{% block title %} 
+Мапа навальніц
+{% endblock title %}
+
+
+{% block header %}
+ абярыце колькасць навальнічных дзен у годзе для вашай мясцовасці ... 
+{% endblock header %}
+
+
+{% block content1 %}
+ <img src="{% static 'img/chel.png' %}" width="90%">
+ <a class="active-button" href="{% url 'calculate' %}"> трапіць назад да формы разліка ... </a>
+
+{% endblock content1 %}
+
+{% block content2 %}
+ <p>
+  Каб выбраць патрэбную колькасць навалнічных дзен трэба зарыентавацца па каарднатнай сетцы.
+  <br> Каардынаты трэба узяць па мапе яндэкса ці гугла
+  
+ </p>
+  <div class="row">
+    <div class="col align-self-center">
+      <img src="{% static 'img/mapa.png' %}" width="75%">
+     
+    </div>  
+  
+  </div>
+
+ 
+    
+{% endblock content2 %}
